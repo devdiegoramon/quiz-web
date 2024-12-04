@@ -23,3 +23,11 @@
     padding: 1.5rem;
     width: 100%;
 }
+
+.correto {
+    background-color: #28a745;
+}
+
+.incorreto {
+    background-color: #dc3545;
+}

@@ -52,7 +52,6 @@ startGame = () => {
     questionCounter = 0;
     score = 0;
     availableQuestions = [ ... questions];
-    console.log(availableQuestions);
     getNewQuestion();
 };
 
@@ -73,20 +72,36 @@ getNewQuestion = () => {
     });
 
     availableQuestions.splice(questionIndex, 1);
-    console.log(availableQuestions)
     acceptingAnswers = true;
 };
 
 choices.forEach(choice => {
     choice.addEventListener("click", e => {
-        if(!acceptingAnswers) return;
+        if (!acceptingAnswers) return;
 
-        acceptingAnswers=false;
-        const selectedChoise = e.target;
-        const selectedAnswer = selectedChoise.dataset["number"];
-        console.log(selectedAnswer);
-        getNewQuestion();
+        acceptingAnswers = false;
+        const selectedChoice = e.target;
+        const selectedAnswer = selectedChoice.dataset["number"];
+
+        const classToApply = selectedAnswer == currentQuestion.answer ? "correto" : "incorreto";
+
+        console.log("Resposta: ", classToApply);
+
+        selectedChoice.parentElement.classList.add(classToApply);
+
+        if (classToApply === "correto") {
+            setTimeout(() => {
+                selectedChoice.parentElement.classList.remove(classToApply);
+                getNewQuestion();
+            }, 1000);
+        } else {
+            setTimeout(() => {
+                selectedChoice.parentElement.classList.remove(classToApply);
+                acceptingAnswers = true;
+            }, 1000);
+        }
     });
 });
+
 
 startGame();
