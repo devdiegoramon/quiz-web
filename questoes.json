@@ -1,0 +1,202 @@
+[
+    {
+        "question": "O que significa HTML?",
+        "choice1": "Hyper Text Markup Language",
+        "choice2": "Hyperlink Text Markup Language",
+        "choice3": "Home Tool Markup Language",
+        "choice4": "Hyper Text Markdown Language",
+        "answer": 1
+    },
+    {
+        "question": "Qual a tag usada para criar um link em HTML?",
+        "choice1": "<div>",
+        "choice2": "<a>",
+        "choice3": "<link>",
+        "choice4": "<href>",
+        "answer": 2
+    },
+    {
+        "question": "Qual atributo é usado para especificar uma imagem em uma tag <img>?",
+        "choice1": "alt",
+        "choice2": "src",
+        "choice3": "href",
+        "choice4": "title",
+        "answer": 2
+    },
+    {
+        "question": "Qual destas tags é usada para criar uma lista não ordenada em HTML?",
+        "choice1": "<ul>",
+        "choice2": "<ol>",
+        "choice3": "<li>",
+        "choice4": "<list>",
+        "answer": 1
+    },
+    {
+        "question": "Qual é a propriedade CSS usada para alterar a cor de fundo de um elemento?",
+        "choice1": "background-color",
+        "choice2": "color",
+        "choice3": "bgcolor",
+        "choice4": "background",
+        "answer": 1
+    },
+    {
+        "question": "O que é o CSS Flexbox?",
+        "choice1": "Um layout baseado em grids",
+        "choice2": "Uma técnica de posicionamento de elementos",
+        "choice3": "Uma propriedade para animações",
+        "choice4": "Um sistema para ajustar fontes",
+        "answer": 2
+    },
+    {
+        "question": "Qual a diferença entre class e id em CSS?",
+        "choice1": "Não há diferença",
+        "choice2": "A classe é usada para estilos gerais, enquanto o id é único",
+        "choice3": "Classe pode ser aplicada a vários elementos, id a apenas um",
+        "choice4": "Ambos são usados para a mesma finalidade",
+        "answer": 3
+    },
+    {
+        "question": "Em JavaScript, como você declara uma variável?",
+        "choice1": "var nome",
+        "choice2": "let nome",
+        "choice3": "const nome",
+        "choice4": "Todas as alternativas anteriores",
+        "answer": 4
+    },
+    {
+        "question": "Qual método em JavaScript é utilizado para adicionar um item no final de um array?",
+        "choice1": "push()",
+        "choice2": "pop()",
+        "choice3": "shift()",
+        "choice4": "unshift()",
+        "answer": 1
+    },
+    {
+        "question": "Qual é o comando correto para criar uma função em JavaScript?",
+        "choice1": "function minhaFuncao()",
+        "choice2": "func minhaFuncao()",
+        "choice3": "function:minhaFuncao()",
+        "choice4": "minhaFuncao()",
+        "answer": 1
+    },
+    {
+        "question": "Qual tag é usada para definir um parágrafo em HTML?",
+        "choice1": "<div>",
+        "choice2": "<p>",
+        "choice3": "<section>",
+        "choice4": "<span>",
+        "answer": 2
+    },
+    {
+        "question": "Qual a função do atributo 'alt' em uma tag <img>?",
+        "choice1": "Define o título da imagem",
+        "choice2": "Define o tamanho da imagem",
+        "choice3": "Descreve o conteúdo da imagem",
+        "choice4": "Define o caminho da imagem",
+        "answer": 3
+    },
+    {
+        "question": "Em CSS, qual é a unidade de medida relativa usada para fontes?",
+        "choice1": "px",
+        "choice2": "em",
+        "choice3": "rem",
+        "choice4": "pt",
+        "answer": 2
+    },
+    {
+        "question": "Como se adiciona um comentário em JavaScript?",
+        "choice1": "// comentário",
+        "choice2": "/* comentário */",
+        "choice3": "# comentário",
+        "choice4": "comentário()",
+        "answer": 1
+    },
+    {
+        "question": "Qual a tag HTML usada para incluir scripts de JavaScript?",
+        "choice1": "<javascript>",
+        "choice2": "<script>",
+        "choice3": "<js>",
+        "choice4": "<src>",
+        "answer": 2
+    },
+    {
+        "question": "Em CSS, o que faz a propriedade 'display: none'?",
+        "choice1": "Faz o elemento se tornar invisível, mas ainda ocupa espaço",
+        "choice2": "Remove o elemento da tela completamente",
+        "choice3": "Faz o elemento aparecer com a opacidade 0",
+        "choice4": "Faz o texto do elemento desaparecer",
+        "answer": 2
+    },
+    {
+        "question": "Como você acessa o conteúdo de um elemento com JavaScript?",
+        "choice1": "getElementById()",
+        "choice2": "getElementByClass()",
+        "choice3": "querySelector()",
+        "choice4": "Todas as alternativas anteriores",
+        "answer": 4
+    },
+    {
+        "question": "Qual a função do atributo 'href' em uma tag <a>?",
+        "choice1": "Especifica o endereço de destino do link",
+        "choice2": "Define a cor do link",
+        "choice3": "Define o nome do link",
+        "choice4": "Especifica o texto do link",
+        "answer": 1
+    },
+    {
+        "question": "O que o comando 'console.log()' faz em JavaScript?",
+        "choice1": "Exibe uma mensagem no console do navegador",
+        "choice2": "Exibe uma mensagem na página web",
+        "choice3": "Altera o conteúdo do console",
+        "choice4": "Registra um erro no console",
+        "answer": 1
+    },
+    {
+        "question": "O que é o 'box model' em CSS?",
+        "choice1": "É o modelo de layout da página",
+        "choice2": "Define como os elementos são posicionados",
+        "choice3": "É a forma como a largura, altura, padding e borda são calculados",
+        "choice4": "Nenhuma das alternativas",
+        "answer": 3
+    },
+    {
+        "question": "Qual a tag HTML usada para incluir uma folha de estilo externa?",
+        "choice1": "<link>",
+        "choice2": "<style>",
+        "choice3": "<css>",
+        "choice4": "<script>",
+        "answer": 1
+    },
+    {
+        "question": "Qual a propriedade CSS usada para alterar a cor do texto de um elemento?",
+        "choice1": "color",
+        "choice2": "font-color",
+        "choice3": "text-color",
+        "choice4": "background-color",
+        "answer": 1
+    },
+    {
+        "question": "Como você cria uma constante em JavaScript?",
+        "choice1": "const nome",
+        "choice2": "let nome",
+        "choice3": "var nome",
+        "choice4": "constant nome",
+        "answer": 1
+    },
+    {
+        "question": "Qual o nome da propriedade CSS que controla o espaçamento entre as letras?",
+        "choice1": "letter-spacing",
+        "choice2": "word-spacing",
+        "choice3": "line-height",
+        "choice4": "text-spacing",
+        "answer": 1
+    },
+    {
+        "question": "Como você seleciona todos os elementos com a classe 'exemplo' em JavaScript?",
+        "choice1": "document.querySelectorAll('.exemplo')",
+        "choice2": "document.getElementById('.exemplo')",
+        "choice3": "document.getElementsByClassName('exemplo')",
+        "choice4": "document.getElementsByTagName('.exemplo')",
+        "answer": 1
+    }
+]

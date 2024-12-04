@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ranking</title>
+    <link rel="stylesheet" href="ranking.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Ranking</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Posição</th>
+                    <th>Nome</th>
+                    <th>Pontuação</th>
+                    <th>Data</th>
+                </tr>
+            </thead>
+            <tbody id="ranking-list">
+            </tbody>
+        </table>
+        <button onclick="window.location.href='/index.html'">Jogar Novamente</button>
+    </div>
+
+    <script>
+        const rankingList = document.getElementById("ranking-list");
+        const ranking = JSON.parse(localStorage.getItem("ranking")) || [];
+
+        ranking.forEach((entry, index) => {
+            const row = document.createElement("tr");
+            row.innerHTML = `
+                <td>${index + 1}</td>
+                <td>Jogador ${index + 1}</td>
+                <td>${entry.score}</td>
+                <td>${entry.date}</td>
+            `;
+            rankingList.appendChild(row);
+        });
+    </script>
+</body>
+</html>

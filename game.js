@@ -1,8 +1,9 @@
-console.log("Lets play UNICAP");
+console.log("Let's play UNICAP");
 
 const question = document.getElementById("question");
 const choices = Array.from(document.getElementsByClassName("choise-text"));
-console.log(choices);
+const questionCounterText = document.getElementById("questionCounter");
+const scoreText = document.getElementById("score");
 
 let currentQuestion = {};
 let acceptingAnswers = true;
@@ -10,58 +11,36 @@ let score = 0;
 let questionCounter = 0;
 let availableQuestions = [];
 
-let questions = [
-    {
-        question: "O que significa HTML?",
-        choice1: "Hyper Text Markup Language",
-        choice2: "Hyperlink Text Mark Language",
-        choice3: "Home Tool Markup Language",
-        choice4: "Hyper Text Markdown Language",
-        answer: 1,
-    },
-    {
-        question: "Qual a tag usada para criar um link em HTML?",
-        choice1: "<div>",
-        choice2: "<a>",
-        choice3: "<link>",
-        choice4: "<href>",
-        answer: 2,
-    },
-    {
-        question: "Qual atributo é usado para especificar uma imagem em uma tag <img>?",
-        choice1: "alt",
-        choice2: "src",
-        choice3: "href",
-        choice4: "title",
-        answer: 2,
-    },
-    {
-        question: "Qual destas tags é usada para criar uma lista não ordenada em HTML?",
-        choice1: "<ul>",
-        choice2: "<ol>",
-        choice3: "<li>",
-        choice4: "<list>",
-        answer: 1,
-    },
-];
-
 const CORRECT_BONUS = 10;
-const MAX_QUESTIONS = 3;
+const MAX_QUESTIONS = 5;
+
+fetch("questoes.json")
+    .then((res) => res.json())
+    .then((loadedQuestions) => {
+        availableQuestions = [...loadedQuestions];
+        startGame();
+    })
+    .catch((err) => {
+        console.error("Erro ao carregar perguntas:", err);
+    });
 
 startGame = () => {
     questionCounter = 0;
     score = 0;
-    availableQuestions = [ ... questions];
+    updateHUD();
     getNewQuestion();
 };
 
 getNewQuestion = () => {
-
-    if(availableQuestions.length === 0 || questionCounter > MAX_QUESTIONS ) {
-        return window.location.assign( "/fimdejogo.html" );
+    if (availableQuestions.length === 0 || questionCounter >= MAX_QUESTIONS) {
+        localStorage.setItem("mostRecentScore", score);
+        updateRanking(score);
+        return window.location.assign("/fimdejogo.html");
     }
 
     questionCounter++;
+    updateHUD();
+
     const questionIndex = Math.floor(Math.random() * availableQuestions.length);
     currentQuestion = availableQuestions[questionIndex];
     question.innerText = currentQuestion.question;
@@ -75,33 +54,40 @@ getNewQuestion = () => {
     acceptingAnswers = true;
 };
 
-choices.forEach(choice => {
-    choice.addEventListener("click", e => {
+choices.forEach((choice) => {
+    choice.addEventListener("click", (e) => {
         if (!acceptingAnswers) return;
 
         acceptingAnswers = false;
         const selectedChoice = e.target;
         const selectedAnswer = selectedChoice.dataset["number"];
 
-        const classToApply = selectedAnswer == currentQuestion.answer ? "correto" : "incorreto";
+        const classToApply =
+            selectedAnswer == currentQuestion.answer ? "correto" : "incorreto";
 
-        console.log("Resposta: ", classToApply);
+        console.log("Resposta:", classToApply);
 
         selectedChoice.parentElement.classList.add(classToApply);
 
         if (classToApply === "correto") {
-            setTimeout(() => {
-                selectedChoice.parentElement.classList.remove(classToApply);
-                getNewQuestion();
-            }, 1000);
-        } else {
-            setTimeout(() => {
-                selectedChoice.parentElement.classList.remove(classToApply);
-                acceptingAnswers = true;
-            }, 1000);
+            score += CORRECT_BONUS;
         }
+
+        setTimeout(() => {
+            selectedChoice.parentElement.classList.remove(classToApply);
+            getNewQuestion();
+        }, 1000);
     });
 });
 
+const updateHUD = () => {
+    questionCounterText.innerText = `${questionCounter}/${MAX_QUESTIONS}`;
+    scoreText.innerText = score;
+};
 
-startGame();
+const updateRanking = (newScore) => {
+    const ranking = JSON.parse(localStorage.getItem("ranking")) || [];
+    ranking.push({ score: newScore, date: new Date().toLocaleString() });
+    ranking.sort((a, b) => b.score - a.score);
+    localStorage.setItem("ranking", JSON.stringify(ranking.slice(0, 10)));
+};

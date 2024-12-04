@@ -1,0 +1,61 @@
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f4f4f9;
+    font-family: Arial, sans-serif;
+    color: #333;
+}
+
+.container {
+    text-align: center;
+    background: #ffffff;
+    padding: 2rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: #56a5eb;
+}
+
+.score-text {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+#finalScore {
+    font-size: 3rem;
+    color: black;
+    margin-bottom: 1rem;
+}
+
+.gif-container {
+    margin: 2rem 0;
+}
+
+.gif-container img {
+    width: 250px;
+    height: auto;
+    border-radius: 0.5rem;
+}
+
+#playAgain {
+    padding: 0.8rem 2rem;
+    font-size: 1.2rem;
+    background-color: #56a5eb;
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#playAgain:hover {
+    background-color: #4591d1;
+}
