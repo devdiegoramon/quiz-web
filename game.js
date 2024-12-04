@@ -51,16 +51,15 @@ const MAX_QUESTIONS = 3;
 startGame = () => {
     questionCounter = 0;
     score = 0;
-    availableQuestions = [...questions];
+    availableQuestions = [ ... questions];
     console.log(availableQuestions);
     getNewQuestion();
 };
 
 getNewQuestion = () => {
-    if (availableQuestions.length === 0 || questionCounter >= MAX_QUESTIONS) {
-        // Fim do jogo
-        console.log("Fim do jogo!");
-        return;
+
+    if(availableQuestions.length === 0 || questionCounter > MAX_QUESTIONS ) {
+        return window.location.assign( "/fimdejogo.html" );
     }
 
     questionCounter++;
@@ -74,8 +73,20 @@ getNewQuestion = () => {
     });
 
     availableQuestions.splice(questionIndex, 1);
-
+    console.log(availableQuestions)
     acceptingAnswers = true;
 };
+
+choices.forEach(choice => {
+    choice.addEventListener("click", e => {
+        if(!acceptingAnswers) return;
+
+        acceptingAnswers=false;
+        const selectedChoise = e.target;
+        const selectedAnswer = selectedChoise.dataset["number"];
+        console.log(selectedAnswer);
+        getNewQuestion();
+    });
+});
 
 startGame();
